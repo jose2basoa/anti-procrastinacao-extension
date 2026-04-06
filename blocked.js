@@ -1,14 +1,16 @@
-const mensagens = [
-  "Você realmente acha que isso vai te levar pra onde quer?",
-  "Volta a estudar. Disciplina > motivação.",
-  "Seu concorrente não tá vendo isso agora.",
-  "Foco. Você tem meta pra bater.",
-  "Menos scroll, mais resultado."
+const mensagensPadrao = [
+  "Volta ao foco.",
+  "Disciplina > motivação.",
+  "Você tem meta hoje."
 ];
 
-document.getElementById("message").innerText =
-  mensagens[Math.floor(Math.random() * mensagens.length)];
+chrome.storage.sync.get(["customMessage"], (data) => {
+  const msg = data.customMessage;
+
+  document.getElementById("message").innerText =
+    msg || mensagensPadrao[Math.floor(Math.random() * mensagensPadrao.length)];
+});
 
 function voltar() {
-  window.history.back();
+  window.location.href = "https://www.google.com";
 }
