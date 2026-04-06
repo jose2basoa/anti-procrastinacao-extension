@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Anti Procrastinação",
+  "version": "1.0",
+  "description": "Bloqueia sites e te força a voltar a ser produtivo",
+  "permissions": ["tabs", "webNavigation"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
